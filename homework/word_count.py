@@ -6,6 +6,7 @@ import fileinput
 import glob
 import os.path
 from itertools import groupby
+import string
 
 
 #
@@ -25,6 +26,12 @@ from itertools import groupby
 #
 def load_input(input_directory):
     """Funcion load_input"""
+    sequence = []
+    files = glob.glob(f'{input_directory}/*')
+    with fileinput.input(files=files) as f:
+        for line in f:
+            sequence.append(fileinput.filename(), line)
+    return sequence
 
 
 #
@@ -34,6 +41,7 @@ def load_input(input_directory):
 #
 def line_preprocessing(sequence):
     """Line Preprocessing"""
+    (key, value.translate(str.maketrans("", "", string.punctuation)).lower())
 
 
 #
